@@ -1,0 +1,42 @@
+input.onButtonPressed(Button.A, function () {
+    basic.showLeds(`
+        # . . . #
+        . # . # .
+        . . . . .
+        # . . . #
+        . # # # .
+        `)
+    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 100)
+    maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 100)
+    basic.pause(1000)
+    maqueen.motorStop(maqueen.Motors.M1)
+    maqueen.motorStop(maqueen.Motors.M2)
+    basic.showLeds(`
+        # # . # #
+        # . . # .
+        . . . . .
+        . . . . #
+        . # # # .
+        `)
+    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 200)
+    basic.pause(1000)
+    maqueen.motorStop(maqueen.Motors.M1)
+    basic.showLeds(`
+        . # # # .
+        # # . . #
+        # . # . #
+        # . . # #
+        . # # # .
+        `)
+})
+basic.forever(function () {
+    maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOn)
+    basic.pause(100)
+    maqueen.writeLED(maqueen.LED.LEDLeft, maqueen.LEDswitch.turnOff)
+    maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOn)
+    basic.pause(100)
+    maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff)
+})
+basic.forever(function () {
+	
+})
